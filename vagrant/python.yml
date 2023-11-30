@@ -15,6 +15,29 @@
     virtualenv: /home/decide/venv
     virtualenv_python: python3
 
+- name: Install packages
+  become: true
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - acl
+    - git
+    - postgresql
+    - python3
+    - python3-pip
+    - python3-psycopg2
+    - python3-virtualenv
+    - virtualenv
+    - nginx
+    - libpq-dev
+    - python-setuptools
+    - build-essential
+    - python3-dev
+    - make
+    - m4
+
 - name: Requirements
   become: yes
   become_user: decide
